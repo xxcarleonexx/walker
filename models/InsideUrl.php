@@ -41,7 +41,7 @@ class InsideUrl extends \yii\db\ActiveRecord
             [['site_link_id'], 'required'],
             [['site_link_id', 'status'], 'integer'],
             ['url', 'url', 'defaultScheme' => 'http'],
-            [['site_link_id'], 'exist', 'skipOnError' => true, 'targetClass' => UrlLinking::class,
+            [['site_link_id'], 'exist', 'skipOnError' => true, 'targetClass' => UrlLinking::className(),
                 'targetAttribute' => ['site_link_id' => 'id']],
         ];
     }
@@ -63,7 +63,7 @@ class InsideUrl extends \yii\db\ActiveRecord
      */
     public function getSiteLink()
     {
-        return $this->hasOne(UrlLinking::class, ['id' => 'site_link_id']);
+        return $this->hasOne(UrlLinking::className(), ['id' => 'site_link_id']);
     }
 
     /**
@@ -71,7 +71,7 @@ class InsideUrl extends \yii\db\ActiveRecord
      */
     public function getLogErrors()
     {
-        return $this->hasOne(Errors::class, ['site_id' => 'id']);
+        return $this->hasOne(Errors::className(), ['site_id' => 'id']);
     }
 
     /**

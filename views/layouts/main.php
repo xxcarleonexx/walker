@@ -3,9 +3,11 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use app\assets\AppAsset;
 use yii\helpers\Html;
 ?>
 <?php $this->beginPage() ?>
+<?php AppAsset::register($this)?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>

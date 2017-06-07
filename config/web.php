@@ -43,7 +43,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'defaultRoute' => 'check/index',
+//                'defaultRoute' => 'check/index',
             ],
         ],
 

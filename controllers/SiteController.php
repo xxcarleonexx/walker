@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\InsideUrl;
 use app\models\InsideUrlForm;
 use app\models\UrlLinking;
+use nizsheanez\jsonRpc\Action;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -42,7 +43,7 @@ class SiteController extends Controller
     {
         return [
             'jsonrpc' => [
-                'class' => 'nizsheanez\jsonRpc\Action',
+                'class' => Action::className(),
             ],
         ];
     }

@@ -53,7 +53,7 @@ class UrlLinking extends \yii\db\ActiveRecord
      */
     public function getInsideUrls()
     {
-        return $this->hasMany(InsideUrl::class, ['site_link_id' => 'id']);
+        return $this->hasMany(InsideUrl::className(), ['site_link_id' => 'id']);
     }
 
     /**
@@ -61,7 +61,7 @@ class UrlLinking extends \yii\db\ActiveRecord
      */
     public function getLogErrors()
     {
-        return $this->hasMany(Errors::class, ['site_id' => 'id'])
+        return $this->hasMany(Errors::className(), ['site_id' => 'id'])
             ->via('insideUrls');
     }
 
@@ -70,7 +70,7 @@ class UrlLinking extends \yii\db\ActiveRecord
      */
     public function getWeekErrors()
     {
-        return $this->hasMany(Errors::class, ['site_id' => 'id'])
+        return $this->hasMany(Errors::className(), ['site_id' => 'id'])
             ->where(['>=', 'date', new Expression('DATE_SUB(NOW(), INTERVAL 1 WEEK)')])
             ->via('insideUrls');
     }
