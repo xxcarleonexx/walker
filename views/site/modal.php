@@ -58,7 +58,7 @@ $(".js__modal_save_change").click(function(event) {
     if ($(".form-group .has-error").length) {
         return;
     }
-    jsonrpcWrapper("/check/jsonrpc", "tryToSave", {data: data}, function(xhr, status) {
+    jsonrpcWrapper("/site/jsonrpc", "tryToSave", {data: data}, function(xhr, status) {
         reloadPjax();
         $oldDomain.val("");
         $newDomain.val("");

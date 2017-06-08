@@ -97,14 +97,14 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php $this->registerJs(/**@lang JavaScript */
     '
  var timerId = setInterval(function() {
-        jsonrpcWrapper("/check/jsonrpc", "search", {}, function(xhr, status) {
+        jsonrpcWrapper("/site/jsonrpc", "search", {}, function(xhr, status) {
             reloadPjax();
         });
    }, 10000);
 
 $(document).on("click", ".fa-refresh", function(event) {
     var siteId = $(this).data("site");
-    jsonrpcWrapper("/check/jsonrpc", "search", {id:siteId}, function(xhr, status) {
+    jsonrpcWrapper("/site/jsonrpc", "search", {id:siteId}, function(xhr, status) {
        var data = xhr.responseJSON.result;
        if (301 === data) {
            alert("Site will be remove from errors list");
